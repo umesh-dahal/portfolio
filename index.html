@@ -1,3 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Umesh Dahal | Portfolio</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+      <style>
+         /* General Styling */
+         body {
+         background-color: #fff;
+         color: #000;
+         font-family: 'Arial', sans-serif;
+         }
+         /* Hero Section */
+         .hero {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         text-align: left;
+         background-color: rgb(54, 52, 52);
+         color: #fff;
+         padding: 60px 20px;
+         gap: 30px;
+         position: relative;
+         margin-bottom: 0px;
+         padding-bottom: 50px;
+         }
+         /* Profile Image */
+         .hero img {
+         width: 230px;
+         border-radius: 50%;
+         box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+         }
+         /* Text Container */
+         .hero-text {
+         max-width: 500px;
+         flex: 1;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         }
+         /* Name */
+         .hero-text h1 {
+         text-align: center;
+         margin-bottom: 5px;
+         }
+         /* Skills Section */
+         .hero-text p {
+         text-align: center;
+         font-size: 1.0rem;
+         margin: 1px 0;
+         white-space: nowrap; /* Prevents text from wrapping */
+         }
+         /* Quote Section (Centered in the Box) */
+         .quote-container {
+         display: flex;
+         align-items: center; /* Vertically center */
+         justify-content: center; /* Horizontally center */
+         background-color: rgb(54, 52, 52); /* Match Hero Section */
+         color: white;
+         padding: 15px 0; /* Adjust padding */
+         min-height: 40px; /* Ensure enough height */
+         }
+         /* Quote Styling */
+         .quote {
+         font-style: italic;
+         font-size: 1.1rem;
+         text-align: center;
+         opacity: 0.9;
+         max-width: 90%;
+         margin: auto; /* Centers text */
+         }
+         .icon {
+         width: 20px; /* Adjust icon size */
+         height: auto;
+         margin-right: 5px; /* Space between icon and text */
+         vertical-align: middle;
+         }
+         .contact-links a {
+         display: flex;
+         align-items: center;
+         gap: 5px;
+         }
+         /* Contact Section */
+         .contact-section {
+         text-align: center;
+         margin-top: 10px;
+         padding: 15px 0;
+         }
+         .contact-links {
+         display: flex;
+         justify-content: center;
+         gap: 20px;
+         }
+         .contact-links a {
+         font-size: 1.3rem;
+         font-weight: bold;
+         text-decoration: none;
+         color: black;
+         position: relative;
+         }
+         .contact-links a:hover {
+         text-decoration: underline;
+         }
+         /* Email Hover Effect */
+         .email-container {
+         position: relative;
+         display: inline-block;
+         }
+         .hover-email {
+         visibility: hidden;
+         position: absolute;
+         background-color: #f8f9fa;
+         color: #000;
+         padding: 5px 10px;
+         border-radius: 5px;
+         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+         font-size: 1rem;
+         white-space: nowrap;
+         left: 50%;
+         top: 30px;
+         transform: translateX(-50%);
+         }
+         .email-container:hover .hover-email {
+         visibility: visible;
+         }
+         /* Collapsible Sections */
+         .collapsible-btn {
+         width: 100%;
+         text-align: left;
+         font-size: 1.2rem;
+         font-weight: bold;
+         padding: 10px;
+         border: none;
+         background-color: #f8f9fa;
+         cursor: pointer;
+         border-bottom: 2px solid #ccc;
+         }
+         .collapsible-btn:hover {
+         background-color: #e9ecef;
+         }
+         .education-list ul {
+         list-style-type: none; /* Removes default bullet points */
+         padding-left: 0; /* Aligns list properly */
+         }
+         .education-list ul li::before {
+         content: "- "; /* Adds a dash before each list item */
+         font-weight: bold; /* Optional: makes dash bold */
+         }
+         .date {
+         float: right; /* Aligns dates to the right */
+         font-style: italic;
+         color: gray;
+         }
+         .experience-list ul {
+         list-style-type: none; /* Removes default bullet points */
+         padding-left: 0; /* Aligns list properly */
+         }
+         .experience-list ul li::before {
+         content: "- "; /* Adds a dash before each list item */
+         font-weight: bold; /* Optional: makes dash bold */
+         }
+         .date {
+         float: right; /* Aligns dates to the right */
+         font-style: italic;
+         color: gray;
+         }
+         .skill-item {
+         display: flex;
+         justify-content: space-between;
+         max-width: 400px; /* Adjust width as needed */
+         }
+         .skill-item span {
+         display: inline-block;
+         }
+         .stars {
+         min-width: 80px; /* Ensures all stars align at the same position */
+         text-align: right;
+         }
+         .projects-list ul {
+         list-style-type: none; /* Removes default bullet points */
+         padding-left: 0; /* Aligns list properly */
+         }
+         .projects-list ul li::before {
+         content: "- "; /* Adds a dash before each list item */
+         font-weight: bold; /* Optional: makes dash bold */
+         }
+         .date {
+         float: right; /* Aligns dates to the right */
+         font-style: italic;
+         color: gray;
+         }
+         .certificate-list ul {
+         list-style-type: none; /* Removes default bullet points */
+         padding-left: 0; /* Aligns list properly */
+         }
+         .certificate-list ul li::before {
+         content: "- "; /* Adds a dash before each list item */
+         font-weight: bold; /* Optional: makes dash bold */
+         }
+         .date {
+         float: right; /* Aligns dates to the right */
+         font-style: italic;
+         color: gray;
+         }
+         /* Footer - Center Text Perfectly */
+         .footer {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 50px; /* Adjust as needed */
+         background-color: #212529; /* Ensures dark theme */
+         color: white;
+         }
+         /* Responsive Styling */
+         @media (max-width: 768px) {
 /* Hero Section */
          .hero {
          display: flex;
@@ -200,3 +418,226 @@
          background-color: #212529; /* Ensures dark theme */
          color: white;
          }
+         }
+      </style>
+   </head>
+   <body>
+      <!-- Hero Section -->
+      <div class="hero">
+         <img src="static/images/me.jpg" alt="Umesh Dahal">
+         <div class="hero-text">
+            <h1>Umesh Dahal</h1>
+            <p><i>English &nbsp; | &nbsp; German &nbsp; | &nbsp; Nepali &nbsp; | &nbsp; Hindi</i></p>
+            <p><i>Working Student &nbsp;  &nbsp; | &nbsp;  &nbsp; Data Science/Analysis</i></p>
+            <p><i>Analytical Thinking &nbsp; | &nbsp; Solution Orientation &nbsp; | &nbsp; Structured Work Approach</i></p>
+         </div>
+      </div>
+      <!-- Quote Section -->
+      <div class="quote-container">
+         <p>"Believe you can and you're halfway there." - <b><i>Theodore Roosevelt</i></b></p>
+      </div>
+      <!-- Contact Section -->
+      <div class="contact-section">
+         <div class="contact-links d-flex justify-content-center gap-4">
+            <div class="email-container">
+               <a href="mailto:1998.dahal.umesh@gmail.com" class="text-decoration-none">
+               <img src="static/images/gmail.png" alt="Email" class="icon"> Email
+               </a>
+               <span class="hover-email">1998.dahal.umesh@gmail.com</span>
+            </div>
+            <a href="https://www.linkedin.com/in/i-am-umesh/" class="text-decoration-none">
+            <img src="static/images/linkedin.png" alt="LinkedIn" class="icon"> LinkedIn
+            </a>
+            <a href="https://github.com/umesh-dahal?tab=repositories" class="text-decoration-none">
+            <img src="static/images/github.png" alt="GitHub" class="icon"> GitHub
+            </a>
+            <a href="https://www.google.com/maps/place/Hattersheim+am+Main/" class="text-decoration-none">
+            <img src="static/images/location.png" alt="Location" class="icon"> Hattersheim, Germany
+            </a>
+         </div>
+      </div>
+      <div class="container mt-4">
+         <!-- About Me -->
+         <button class="collapsible-btn" data-bs-toggle="collapse" data-bs-target="#aboutMe">About Me</button>
+         <div id="aboutMe" class="collapse">
+            <p>
+               I am Umesh Dahal, a passionate Data Science and Machine Learning enthusiast with a background in 
+               Engineering Business Information Systems. I enjoy working with data, solving problems, and building intelligent solutions. 
+               Currently, I am pursuing my Master’s in Data Science at Justus Liebig University (JLU), Germany. I have experience in 
+               data analysis, machine learning, and process automation, gained through academic projects and industry experience. 
+               I am always eager to learn, innovate, and apply data-driven approaches to real-world challenges.
+            </p>
+         </div>
+         <hr>
+         <!-- Education -->
+         <button class="collapsible-btn" data-bs-toggle="collapse" data-bs-target="#education">Education</button>
+         <div id="education" class="collapse">
+            <ul class="education-list">
+               <li>
+                  <strong>Master of Science in Data Science (Ongoing)</strong> <br>
+                  <em>Justus Liebig University Giessen</em> <span class="date">10/2024 – 10/2026</span>
+                  <ul>
+                     <li>Focus: Artificial Intelligence & Advanced Data Analytics</li>
+                     <li>Skills: Mathematics & Statistics, Optimization & Algorithms, Machine Learning & AI, Programming & Tools, Big Data & Analytics</li>
+                  </ul>
+               </li>
+               <br>
+               <li>
+                  <strong>Bachelor of Science in Engineering Business Information Systems</strong> <br>
+                  <em>Frankfurt University of Applied Sciences</em> <span class="date">10/2020 – 10/2024</span>
+                  <ul>
+                     <li>Final Grade: 2.3</li>
+                     <li>Focus: IT Business Analytics</li>
+                     <li>Skills: Data Analysis & Business Intelligence, Web Technologies & Development, Project & Process Management, Databases</li>
+                  </ul>
+               </li>
+               <br>
+               <li>
+                  <strong>Preparatory Course (Studienkolleg)</strong> <br>
+                  <em>Kiel University of Applied Sciences</em> <span class="date">01/2019 – 12/2019</span>
+                  <ul>
+                     <li>Final Grade: 1.9 (combined with high school diploma from Nepal)</li>
+                     <li>Focus in Studienkolleg: Business and Informatics</li>
+                     <li>High School Diploma in Nepal Focus: Natural Sciences</li>
+                  </ul>
+               </li>
+            </ul>
+         </div>
+         <hr>
+         <!-- Experience -->
+         <button class="collapsible-btn" data-bs-toggle="collapse" data-bs-target="#experience">Experience</button>
+         <div id="experience" class="collapse">
+            <ul class="experience-list">
+               <li>
+                  <strong>Working Student – Business Intelligence in Quality Management </strong><br>
+                  <em> Rhein-Main-Verkehrsverbund, Hofheim <span class="date">12/2023 – Present</em></span>
+                  <ul>
+                     <li>Creation, updating, and analysis of statistics and reports according to specific requirements (e.g., cancellations, punctuality, reliability, annual settlements, bonus-malus).</li>
+                     <li>Importing raw data from partner companies into the database, error analysis, and creating protocols for quality assurance.</li>
+                     <li>Development, optimization, and expansion of reports and data pipelines using Power BI.</li>
+                  </ul>
+               </li>
+               <br>
+               <li>
+                  <strong> Intern – Quality Management & Business Process Management </strong><br>
+                  <em>   Fraport AG, Frankfurt <span class="date">05/2023 – 10/2023</em></span>
+                  <ul>
+                     <li>Optimization of internal processes through analysis and modeling using BPMN and EPK.</li>
+                     <li>Creation of EPK models in ARIS and automation of workflows in Signavio using JavaScript, including digitization of the management review process.</li>
+                     <li>Data analysis for internal and external audits using Power BI.</li>
+                     <li>Monitoring management review data and open issues using JIRA, ensuring efficient tracking and administration.</li>
+                  </ul>
+               </li>
+            </ul>
+         </div>
+         <hr>
+         <!-- Skills Section -->
+         <button class="collapsible-btn" data-bs-toggle="collapse" data-bs-target="#skills">Skills</button>
+         <div id="skills" class="collapse">
+            <ul class="list-unstyled">
+               <li class="skill-item"><span>Data Analysis & Statistics:</span> <span class="stars">★★★★☆</span></li>
+               <li class="skill-item"><span>Python & ML Libraries:</span> <span class="stars">★★★★☆</span></li>
+               <li class="skill-item"><span>Machine Learning:</span> <span class="stars">★★★★☆</span></li>
+               <li class="skill-item"><span>Power BI & Visualization:</span> <span class="stars">★★★★☆</span></li>
+               <li class="skill-item"><span>SQL & Databases:</span> <span class="stars">★★★☆☆</span></li>
+               <li class="skill-item"><span>Big Data Analytics:</span> <span class="stars">★★★☆☆</span></li>
+               <li class="skill-item"><span>Process Management:</span> <span class="stars">★★★☆☆</span></li>
+               <li class="skill-item"><span>Web Development:</span> <span class="stars">★★☆☆☆</span></li>
+            </ul>
+         </div>
+         <hr>
+         <!-- Projects -->
+         <button class="collapsible-btn" data-bs-toggle="collapse" data-bs-target="#projects">Projects</button>
+         <div id="projects" class="collapse">
+            <ul class="projects-list">
+               <li>
+                  <strong>Data Science and Machine Learning</strong> <br>
+                  <em>Justus Liebig University Giessen</em> <span class="date">09/2024 – 02/2025</span>
+                  <ul>
+                     <li>Project using various methods such as XGBoost, Logistic Regression, and Support Vector Machine.</li>
+                  </ul>
+               </li>
+               <br>
+               <li>
+                  <strong>Information Visualization</strong> <br>
+                  <em>Justus Liebig University Giessen</em> <span class="date">09/2024 – 02/2025</span>
+                  <ul>
+                     <li>Analysis of historical survey data from students over 12 years to extract relevant information and patterns.</li>
+                  </ul>
+               </li>
+               <br>
+               <li>
+                  <strong>Data Analysis with Python</strong> <br>
+                  <em>Online</em> <span class="date">11/2024 – 12/2024</span>
+                  <ul>
+                     <li>Analyzed historical Nasdaq-ETF data using finance API, statistical methods, and machine learning, implementing KNN clustering for pattern recognition and polynomial regression for price trend prediction.</li>
+                  </ul>
+               </li>
+               <br>
+               <li>
+                  <strong>Bachelor's Thesis</strong> <br>
+                  <em>Frankfurt University of Applied Sciences</em> <span class="date">05/2024 – 07/2024</span>
+                  <ul>
+                     <li>Comparison of AI-generated dashboards in Power BI with manually created dashboards in terms of information gain and user experience.</li>
+                  </ul>
+               </li>
+               <br>
+               <li>
+                  <strong>Workflow for Review Management</strong> <br>
+                  <em>Fraport AG, Frankfurt</em> <span class="date">05/2023 – 09/2023</span>
+                  <ul>
+                     <li>Development of a workflow for process automation in cross-departmental tasks such as audit reports in SAP Signavio.</li>
+                  </ul>
+               </li>
+               <br>
+               <li>
+                  <strong>Web Application</strong> <br>
+                  <em>Frankfurt University of Applied Sciences</em> <span class="date">03/2023 – 07/2023</span>
+                  <ul>
+                     <li>Developed a pizza delivery app using Java, Spring Boot, HTML, Bootstrap, and JavaScript with SQL database integration and a responsive UI.</li>
+                  </ul>
+               </li>
+            </ul>
+         </div>
+         <hr>
+         <!-- Certificates -->
+         <button class="collapsible-btn" data-bs-toggle="collapse" data-bs-target="#certificate">Certificates</button>
+         <div id="certificate" class="collapse">
+            <ul class="certificate-list">
+               <li>
+                  <strong>Advanced Power BI</strong> <br>
+                  <em>Petri Software, Hofheim</em> <span class="date">01/2024 – 12/2024</span>
+                  <ul>
+                     <li>Creation of complex reports for Rhein-Main-Verkehrsverbund GmbH (RMV) in collaboration with Petri Software.</li>
+                  </ul>
+               </li>
+               <br>
+               <li>
+                  <strong>Business Analytics: Excel Macros & VBA for Beginners</strong> <br>
+                  <em>Simplilearn</em> <span class="date">01/2025</span>
+                  <ul>
+                     <li>Introduction to Excel VBA & Macros for process automation.</li>
+                  </ul>
+               </li>
+            </ul>
+         </div>
+         <hr>
+         <!-- Final Statement -->
+         <div class="text-center mt-4">
+            <p>
+               <strong><i> Let's connect and create data-driven solutions that make an impact!</strong></i>
+            </p>
+         </div>
+         <hr>
+         <!-- Footer -->
+         <div class="footer text-center bg-dark text-white py-2 mt-3">
+            <p>© <span id="year"></span> Umesh Dahal</p>
+         </div>
+         <!-- JavaScript to Update Year Dynamically -->
+         <script>
+            document.getElementById("year").textContent = new Date().getFullYear();
+         </script>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   </body>
+</html>
