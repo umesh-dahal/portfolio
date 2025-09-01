@@ -1,498 +1,569 @@
+<!--
+  Neo Red Animated Portfolio — single-file, GitHub Pages ready
+  Author: Umesh Dahal
+  How to use:
+  1) Save this as index.html in a GitHub repository
+  2) GitHub → Settings → Pages → Deploy from branch → main → /(root)
+  3) Edit the "SITE_CONTENT" object below to customize content
+-->
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Umesh Dahal | Portfolio</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-      <style>
-         /* General Styling */
-         body {
-         background-color: #fff;
-         color: #000;
-         font-family: 'Arial', sans-serif;
-         }
-         /* Hero Section */
-         .hero {
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         text-align: left;
-         background-color: rgb(54, 52, 52);
-         color: #fff;
-         padding: 60px 20px;
-         gap: 30px;
-         position: relative;
-         margin-bottom: 0px;
-         padding-bottom: 50px;
-         }
-         /* Profile Image */
-         .hero img {
-         width: 230px;
-         border-radius: 50%;
-         box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
-         }
-         /* Text Container */
-         .hero-text {
-         max-width: 500px;
-         flex: 1;
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-         justify-content: center;
-         }
-         /* Name */
-         .hero-text h1 {
-         text-align: center;
-         margin-bottom: 5px;
-         }
-         /* Skills Section */
-         .hero-text p {
-         text-align: center;
-         font-size: 1.0rem;
-         margin: 1px 0;
-         white-space: nowrap; /* Prevents text from wrapping */
-         }
-         /* Quote Section (Centered in the Box) */
-         .quote-container {
-         display: flex;
-         align-items: center; /* Vertically center */
-         justify-content: center; /* Horizontally center */
-         background-color: rgb(54, 52, 52); /* Match Hero Section */
-         color: white;
-         padding: 15px 0; /* Adjust padding */
-         min-height: 40px; /* Ensure enough height */
-         }
-         /* Quote Styling */
-         .quote {
-         font-style: italic;
-         font-size: 1.1rem;
-         text-align: center;
-         opacity: 0.9;
-         max-width: 90%;
-         margin: auto; /* Centers text */
-         }
-         .icon {
-         width: 20px; /* Adjust icon size */
-         height: auto;
-         margin-right: 5px; /* Space between icon and text */
-         vertical-align: middle;
-         }
-         .contact-links a {
-         display: flex;
-         align-items: center;
-         gap: 5px;
-         }
-         /* Contact Section */
-         .contact-section {
-         text-align: center;
-         margin-top: 10px;
-         padding: 15px 0;
-         }
-         .contact-links {
-         display: flex;
-         justify-content: center;
-         gap: 20px;
-         }
-         .contact-links a {
-         font-size: 1.3rem;
-         font-weight: bold;
-         text-decoration: none;
-         color: black;
-         position: relative;
-         }
-         .contact-links a:hover {
-         text-decoration: underline;
-         }
-         /* Email Hover Effect */
-         .email-container {
-         position: relative;
-         display: inline-block;
-         }
-         .hover-email {
-         visibility: hidden;
-         position: absolute;
-         background-color: #f8f9fa;
-         color: #000;
-         padding: 5px 10px;
-         border-radius: 5px;
-         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-         font-size: 1rem;
-         white-space: nowrap;
-         left: 50%;
-         top: 30px;
-         transform: translateX(-50%);
-         }
-         .email-container:hover .hover-email {
-         visibility: visible;
-         }
-         /* Collapsible Sections */
-         .collapsible-btn {
-         width: 100%;
-         text-align: left;
-         font-size: 1.2rem;
-         font-weight: bold;
-         padding: 10px;
-         border: none;
-         background-color: #f8f9fa;
-         cursor: pointer;
-         border-bottom: 2px solid #ccc;
-         }
-         .collapsible-btn:hover {
-         background-color: #e9ecef;
-         }
-         .education-list ul {
-         list-style-type: none; /* Removes default bullet points */
-         padding-left: 0; /* Aligns list properly */
-         }
-         .education-list ul li::before {
-         content: "- "; /* Adds a dash before each list item */
-         font-weight: bold; /* Optional: makes dash bold */
-         }
-         .date {
-         float: right; /* Aligns dates to the right */
-         font-style: italic;
-         color: gray;
-         }
-         .experience-list ul {
-         list-style-type: none; /* Removes default bullet points */
-         padding-left: 0; /* Aligns list properly */
-         }
-         .experience-list ul li::before {
-         content: "- "; /* Adds a dash before each list item */
-         font-weight: bold; /* Optional: makes dash bold */
-         }
-         .date {
-         float: right; /* Aligns dates to the right */
-         font-style: italic;
-         color: gray;
-         }
-         .skill-item {
-         display: flex;
-         justify-content: space-between;
-         max-width: 400px; /* Adjust width as needed */
-         }
-         .skill-item span {
-         display: inline-block;
-         }
-         .stars {
-         min-width: 80px; /* Ensures all stars align at the same position */
-         text-align: right;
-         }
-         .projects-list ul {
-         list-style-type: none; /* Removes default bullet points */
-         padding-left: 0; /* Aligns list properly */
-         }
-         .projects-list ul li::before {
-         content: "- "; /* Adds a dash before each list item */
-         font-weight: bold; /* Optional: makes dash bold */
-         }
-         .date {
-         float: right; /* Aligns dates to the right */
-         font-style: italic;
-         color: gray;
-         }
-         .certificate-list ul {
-         list-style-type: none; /* Removes default bullet points */
-         padding-left: 0; /* Aligns list properly */
-         }
-         .certificate-list ul li::before {
-         content: "- "; /* Adds a dash before each list item */
-         font-weight: bold; /* Optional: makes dash bold */
-         }
-         .date {
-         float: right; /* Aligns dates to the right */
-         font-style: italic;
-         color: gray;
-         }
-         /* Footer - Center Text Perfectly */
-         .footer {
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         height: 50px; /* Adjust as needed */
-         background-color: #212529; /* Ensures dark theme */
-         color: white;
-         }
-/* ✅ Fix Hero Section for Small Screens */
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column; /* Stack image and text vertically */
-        text-align: center;
-        padding: 40px 15px; /* Adjust padding */
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Umesh Dahal</title>
+  <meta name="description" content="Neo red, animated personal portfolio of Umesh Dahal" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🔥</text></svg>">
+  <style>
+    :root {
+      --bg: #07060a;          /* deep noir */
+      --panel: #0d0b12;       /* dark card */
+      --text: #e8e8ea;        /* light text */
+      --muted: #b2b2b8;       /* secondary text */
+      --red: #ff153a;         /* neon red */
+      --red-2: #ff375f;       /* pinkish red */
+      --accent: #ff1f4d;      /* accent */
+      --maxw: 1100px;
+      --radius: 20px;
+      --shadow-red: 0 0 24px rgba(255, 30, 70, 0.35), 0 0 60px rgba(255, 30, 70, 0.18);
     }
 
-    .hero img {
-        width: 150px; /* Reduce image size */
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      color: var(--text); background: var(--bg);
+      overflow-x: hidden; scroll-behavior: smooth;
     }
 
-    .hero-text h1 {
-        font-size: 1.8rem;
+    /* ===== Background FX: grid + glow orbs + scanlines ===== */
+    .bg-grid::before, .bg-grid::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -2; }
+    .bg-grid::before {
+      background:
+        radial-gradient(1000px 600px at 70% -10%, rgba(255, 40, 80, 0.18), transparent 60%),
+        radial-gradient(800px 400px at 10% 120%, rgba(255, 20, 60, 0.12), transparent 55%),
+        radial-gradient(600px 500px at 110% 60%, rgba(255, 40, 80, 0.15), transparent 60%),
+        linear-gradient(0deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02)),
+        repeating-linear-gradient(
+          to right,
+          rgba(255,255,255,0.05) 0px,
+          transparent 1px,
+          transparent 80px
+        ),
+        repeating-linear-gradient(
+          to bottom,
+          rgba(255,255,255,0.05) 0px,
+          transparent 1px,
+          transparent 80px
+        );
+      background-blend-mode: screen, screen, screen, overlay, normal, normal;
+      filter: saturate(120%);
+    }
+    .bg-grid::after {
+      background: linear-gradient(transparent 60%, rgba(255, 0, 40, 0.08));
+      mask-image: linear-gradient(to bottom, black, transparent 70%);
+    }
+    .scanlines { position: fixed; inset: 0; pointer-events: none; z-index: -1; }
+    .scanlines::before { content: ""; position: absolute; inset: 0; background: linear-gradient(rgba(255,255,255,0.02) 50%, transparent 50%); background-size: 100% 3px; animation: scan 6s linear infinite; }
+    @keyframes scan { 0%{transform: translateY(-3px);} 100%{transform: translateY(0);} }
+
+    /* ===== Layout ===== */
+    .container { width: min(100%, var(--maxw)); margin: 0 auto; padding: 0 24px; }
+    header { position: sticky; top: 0; backdrop-filter: blur(6px); z-index: 50; border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(7,6,10,0.6); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; }
+    .badge { width: 14px; height: 14px; border-radius: 50%; background: radial-gradient(circle at 60% 40%, var(--red), var(--red-2)); box-shadow: 0 0 12px var(--red); animation: glow 2.2s ease-in-out infinite alternate; }
+    @keyframes glow{ from{ box-shadow: 0 0 10px var(--red), 0 0 25px rgba(255,30,70,.25);} to{ box-shadow: 0 0 20px var(--red-2), 0 0 50px rgba(167, 158, 159, 0.5);} }
+    nav a { color: var(--muted); text-decoration: none; padding: 8px 12px; border-radius: 12px; transition: 150ms; }
+    nav a:hover, nav a.active { color: white; background: rgba(221, 198, 202, 0.1); box-shadow: inset 0 0 0 1px rgba(197, 184, 186, 0.3), 0 0 18px rgba(211, 199, 201, 0.2); }
+
+    /* ===== Hero ===== */
+    .hero { position: relative; padding: 96px 0 72px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; align-items: center; }
+    .hero h1 { font-size: clamp(32px, 5.6vw, 68px); line-height: 1.03; margin: 0 0 12px; letter-spacing: -0.5px; text-shadow: 0 0 20px rgba(255, 30, 70, 0.35); }
+    .hero h1 .accent { color: white; text-shadow: 0 0 30px rgba(255, 30, 70, 0.55), 0 0 60px rgba(255, 30, 70, 0.3); }
+    .subtitle { font-size: clamp(16px, 2.6vw, 20px); color: var(--muted); margin-bottom: 22px; position:relative; white-space:pre-wrap }
+    .subtitle .caret{ display:inline-block; width:1ch; opacity:.6; animation: blink 1s steps(1,end) infinite; }
+    @keyframes blink{ 50%{ opacity:0 } }
+    .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { position: relative; display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01)); color: white; text-decoration: none; font-weight: 600; letter-spacing: 0.3px; box-shadow: 0 0 0 0 rgba(255,30,70,0.0); transition: 200ms transform, 200ms box-shadow, 200ms background; will-change: transform; }
+    .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-red); background: linear-gradient(180deg, rgba(255,30,70,0.18), rgba(255,30,70,0.05)); }
+    .btn .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+
+    .avatar { justify-self: end; width: clamp(220px, 35vw, 360px); aspect-ratio: 1; border-radius: 24px; background: radial-gradient(circle at 30% 30%, rgba(255, 30, 70, 0.3), transparent 40%), linear-gradient(135deg, #100d16, #0c0a10); border: 1px solid rgba(255,255,255,0.06); box-shadow: inset 0 0 150px rgba(255,30,70,0.08), 0 0 90px rgba(255,30,70,0.25); position: relative; overflow: hidden; will-change: transform; }
+    .avatar::after { content: "UD"; position: absolute; inset: 0; display: grid; place-items: center; font-weight: 900; font-size: clamp(64px, 9vw, 120px); letter-spacing: -2px; color: rgba(255,255,255,0.06); text-shadow: 0 0 60px rgba(255,30,70,0.4); }
+    .avatar .ring { position: absolute; inset: 18px; border-radius: 22px; border: 2px dashed rgba(255, 30, 70, 0.3); filter: drop-shadow(0 0 18px rgba(255,30,70,0.4)); animation: spin 16s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .avatar.floating{ animation: float 6s ease-in-out infinite; }
+    @keyframes float{ 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(-8px) } }
+
+    /* ===== Section blocks ===== */
+    section { padding: 70px 0; position: relative; }
+    .section-title { font-size: clamp(18px, 2.2vw, 22px); letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+    .glow-pill { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,30,70,0.08); border: 1px solid rgba(255,30,70,0.4); padding: 8px 12px; border-radius: 999px; box-shadow: 0 0 22px rgba(255,30,70,0.18) inset; }
+    .panel { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius); padding: 22px; box-shadow: 0 0 0 0 rgba(255,30,70,0.0); transition: 240ms; }
+    .panel:hover { box-shadow: var(--shadow-red); border-color: rgba(255,30,70,0.25); }
+
+    /* ===== Grids ===== */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+
+    /* ===== Timeline ===== */
+    .timeline { position: relative; padding-left: 22px; }
+    .timeline::before { content: ""; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(var(--red), transparent); box-shadow: 0 0 12px rgba(255,30,70,0.7); }
+    .item { position: relative; margin: 10px 0 16px; }
+    .item::before { content: ""; position: absolute; left: -18px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 14px var(--accent); }
+    .item h3 { margin: 0 0 6px; font-size: 18px; }
+    .item .meta { color: var(--muted); font-size: 14px; }
+
+    /* ===== Skills ===== */
+    .skill { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 12px; }
+    .skill .name { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 8px; }
+    .bar { height: 10px; border-radius: 999px; background: rgba(255,255,255,0.06); overflow: hidden; }
+    .bar > span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--red), var(--red-2)); box-shadow: 0 0 14px rgba(255, 30, 70, 0.5); transition: width 1.2s ease-out; }
+
+    /* ===== Project cards ===== */
+    .card { position: relative; border-radius: 16px; padding: 18px; background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015)); border: 1px solid rgba(255,255,255,0.06); transform-style: preserve-3d; transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease; --mx: 50%; --my: 50%; overflow: hidden; }
+    .card h4 { margin: 2px 0 8px; }
+    .card p { color: var(--muted); }
+    .card:hover { box-shadow: var(--shadow-red); border-color: rgba(255,30,70,0.25); }
+    .card .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .tag { font-size: 12px; padding: 6px 8px; border-radius: 999px; border: 1px solid rgba(255,30,70,0.4); background: rgba(255,30,70,0.08); color: #ffdbe3; }
+    .card .links { display: flex; gap: 10px; margin-top: 12px; }
+    .card .links a { color: white; text-decoration: none; font-weight: 600; }
+    .card::after{ content:""; position:absolute; inset:-2px; background: radial-gradient(240px 160px at var(--mx) var(--my), rgba(255,255,255,.22), rgba(255,30,70,.10) 35%, transparent 60%); opacity:0; transition: opacity .25s ease; pointer-events:none; }
+    .card:hover::after{ opacity:1; }
+
+    /* ===== Footer ===== */
+    footer { padding: 36px 0 70px; color: var(--muted); text-align: center; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; padding-top: 72px; }
+      .avatar { justify-self: start; }
+      .grid-3 { grid-template-columns: 1fr 1fr; }
+      .grid-4 { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .nav { height: auto; padding: 12px 0; flex-wrap: wrap; }
     }
 
-    .hero-text p {
-        font-size: 0.95rem;
-        white-space: normal; /* Allow text wrapping */
-    }
-}
+    /* ===== Tiny SVG icons (stroke-like) ===== */
+    .icon { width: 18px; height: 18px; display: inline-block; vertical-align: -3px; opacity: 0.9; }
 
-/* ✅ Fix Contact Section for Small Screens */
-@media (max-width: 768px) {
-    .contact-links {
-        flex-direction: column; /* Stack links */
-        gap: 8px; /* Reduce gap */
-    }
+    /* === Extra FX & animations (neo-red) === */
+    #stars{ position:fixed; inset:0; z-index:-3; pointer-events:none; filter: saturate(120%); }
+    #scroll-progress{ position:fixed; left:0; top:0; height:3px; width:0%; background: linear-gradient(90deg, var(--red), var(--red-2)); box-shadow: 0 0 12px rgba(255,30,70,.6), 0 0 30px rgba(255,30,70,.3); z-index:60; pointer-events:none; }
+    .mouse-ring{ position:fixed; width:26px; height:26px; border-radius:50%; border:2px solid rgba(255,30,70,.65); box-shadow: 0 0 18px rgba(255,30,70,.55), inset 0 0 8px rgba(255,30,70,.35); mix-blend-mode: screen; pointer-events:none; z-index:59; opacity:.85; transform: translate(-50%, -50%) scale(1); transition: transform .12s ease, opacity .2s ease; }
+    .mouse-ring.hide{ opacity:.35; transform: translate(-50%,-50%) scale(.5); }
 
-    .contact-links a {
-        font-size: 1.2rem; /* Reduce text size */
-    }
-}
+    /* Per-char hero animation */
+    .hero .ch{ display:inline-block; will-change: transform, opacity; }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="scanlines"></div>
+  <!-- FX layers -->
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <div class="mouse-ring" aria-hidden="true"></div>
 
-/* ✅ Fix Collapsible Sections (Education, Experience, etc.) */
-.collapsible-container {
-    max-width: 800px; /* Keep sections centered */
-    margin: 0 auto;
-}
+  <header>
+    <div class="container nav">
+      <div class="brand"><span class="badge"></span> <span>Umesh Dahal</span></div>
+      <nav id="topnav">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certificates">Certificates/Training</a>
+      </nav>
+    </div>
+  </header>
 
-@media (max-width: 768px) {
-    .collapsible-container {
-        max-width: 95%; /* Make it more flexible on smaller screens */
-    }
-}
-
-/* ✅ Fix Spacing & Button Size */
-@media (max-width: 768px) {
-    .collapsible-btn {
-        font-size: 1.1rem;
-        padding: 8px;
-    }
-}
-
-      </style>
-   </head>
-   <body>
-      <!-- Hero Section -->
-      <div class="hero">
-         <img src="static/images/me.jpg" alt="Umesh Dahal">
-         <div class="hero-text">
-            <h1>UMESH DAHAL</h1>
-            <p><i>English &nbsp; | &nbsp; German &nbsp; | &nbsp; Nepali &nbsp; | &nbsp; Hindi</i></p>
-            <p><i>Working Student &nbsp;  &nbsp; | &nbsp;  &nbsp; Data Science/Analysis</i></p>
-            <p><i>Analytical Thinking &nbsp; | &nbsp; Solution Orientation &nbsp; | &nbsp; Structured Work Approach</i></p>
-         </div>
+  <main>
+    <section class="hero container">
+      <div>
+        <div class="glow-pill" style="margin-bottom:12px"><span class="dot" style="width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);"></span>Neo‑Red Portfolio</div>
+        <h1>Hi, I'm <span class="accent">Umesh Dahal</span> — Data Science student & ML enthusiast.</h1>
+        <p class="subtitle">I build practical deep/machine‑learning projects, data dashboards, and fast, animated web experiences.</p>
+        <div class="cta">
+          <a class="btn" href="#projects"><span class="dot"></span> View Projects</a>
+          <a class="btn" href="#contact">Contact</a>
+          <a class="btn" href="https://github.com/umesh-dahal/portfolio/blob/main/index.html" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
       </div>
-      <!-- Quote Section -->
-      <div class="quote-container">
-         <p>"Believe you can and you're halfway there." - <b><i>Theodore Roosevelt</i></b></p>
+      <div class="avatar">
+        <div class="ring"></div>
       </div>
-      <!-- Contact Section -->
-      <div class="contact-section">
-         <div class="contact-links d-flex justify-content-center gap-4">
-            <div class="email-container">
-               <a href="mailto:1998.dahal.umesh@gmail.com" class="text-decoration-none">
-               <img src="static/images/gmail.png" alt="Email" class="icon"> GMAIL
-               </a>
-               <span class="hover-email">1998.dahal.umesh@gmail.com</span>
-            </div>
-            <a href="https://www.linkedin.com/in/i-am-umesh/" class="text-decoration-none">
-            <img src="static/images/linkedin.png" alt="LinkedIn" class="icon"> LINKEDIN
-            </a>
-            <a href="https://github.com/umesh-dahal?tab=repositories" class="text-decoration-none">
-            <img src="static/images/github.png" alt="GitHub" class="icon"> GITHUB
-            </a>
-            <a href="https://www.google.com/maps/place/Hattersheim+am+Main/" class="text-decoration-none">
-            <img src="static/images/location.png" alt="Location" class="icon"> HATTERSHEIM, GERMANY
-            </a>
-         </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-title"><div class="glow-pill"><span class="dot"></span> About Me</div></div>
+        <div class="panel">
+          <p>
+            I'm a Master's student in Data Science at JLU (Germany) with a background in Engineering Business Information Systems (FRA UAS). I enjoy practical ML—turning data into useful products. I currently work as a working student at RMV, focusing on digital tasks, and I've built projects from logistic regressions all the way to neural networks on MNIST.
+          </p>
+          <p>
+            Interests: Neural Network, Deep Learning projects and building snappy UIs.
+          </p>
+        </div>
       </div>
-      <div class="container mt-4">
-         <!-- About Me -->
-         <button class="collapsible-btn" data-bs-toggle="collapse" data-bs-target="#aboutMe">ABOUT ME</button>
-         <div id="aboutMe" class="collapse">
-            <p>
-               I am Umesh Dahal, a passionate Data Science and Machine Learning enthusiast with a background in 
-               Engineering Business Information Systems. I enjoy working with data, solving problems, and building intelligent solutions. 
-               Currently, I am pursuing my Master’s in Data Science at Justus Liebig University (JLU), Germany. I have experience in 
-               data analysis, machine learning, and process automation, gained through academic projects and industry experience. 
-               I am always eager to learn, innovate, and apply data-driven approaches to real-world challenges.
-            </p>
-         </div>
-         <hr>
-         <!-- Education -->
-         <button class="collapsible-btn" data-bs-toggle="collapse" data-bs-target="#education">EDUCATION</button>
-         <div id="education" class="collapse">
-            <ul class="education-list">
-               <li>
-                  <strong>MASTER OF SCIENCE IN DATA SCIENCE (ONGOING)</strong> <br>
-                  <em>Justus Liebig University Giessen</em> <span class="date">10/2024 – 10/2026</span>
-                  <ul>
-                     <li>Focus: Artificial Intelligence & Advanced Data Analytics</li>
-                     <li>Skills: Mathematics & Statistics, Optimization & Algorithms, Machine Learning & AI, Programming & Tools, Big Data & Analytics</li>
-                  </ul>
-               </li>
-               <br>
-               <li>
-                  <strong>BACHELOR OF SCIENCE IN ENGINEERING BUSINESS INFORMATION SYSTEMS</strong> <br>
-                  <em>Frankfurt University of Applied Sciences</em> <span class="date">10/2020 – 10/2024</span>
-                  <ul>
-                     <li>Final Grade: 2.3</li>
-                     <li>Focus: IT Business Analytics</li>
-                     <li>Skills: Data Analysis & Business Intelligence, Web Technologies & Development, Project & Process Management, Databases</li>
-                  </ul>
-               </li>
-               <br>
-               <li>
-                  <strong>PREPARATORY COURSE (GERMAN: STUDIENKOLLEG)</strong> <br>
-                  <em>Kiel University of Applied Sciences</em> <span class="date">01/2019 – 12/2019</span>
-                  <ul>
-                     <li>Final Grade: 1.9 (combined with high school diploma from Nepal)</li>
-                     <li>Focus in Studienkolleg: Business and Informatics</li>
-                     <li>High School Diploma in Nepal Focus: Natural Sciences</li>
-                  </ul>
-               </li>
-            </ul>
-         </div>
-         <hr>
-         <!-- Experience -->
-         <button class="collapsible-btn" data-bs-toggle="collapse" data-bs-target="#experience">EXPERIENCE</button>
-         <div id="experience" class="collapse">
-            <ul class="experience-list">
-               <li>
-                  <strong>WORKING STUDENT – BUSINESS INTELLIGENCE IN QUALITY MANAGEMENT</strong><br>
-                  <em> Rhein-Main-Verkehrsverbund, Hofheim <span class="date">12/2023 – Present</em></span>
-                  <ul>
-                     <li>Creation, updating, and analysis of statistics and reports according to specific requirements (e.g., cancellations, punctuality, reliability, annual settlements, bonus-malus).</li>
-                     <li>Importing raw data from partner companies into the database, error analysis, and creating protocols for quality assurance.</li>
-                     <li>Development, optimization, and expansion of reports and data pipelines using Power BI.</li>
-                  </ul>
-               </li>
-               <br>
-               <li>
-                  <strong> INTERN – QUALITY MANAGEMENT & BUSINESS PROCESS MANAGEMENT </strong><br>
-                  <em>   Fraport AG, Frankfurt <span class="date">05/2023 – 10/2023</em></span>
-                  <ul>
-                     <li>Optimization of internal processes through analysis and modeling using BPMN and EPK.</li>
-                     <li>Creation of EPK models in ARIS and automation of workflows in Signavio using JavaScript, including digitization of the management review process.</li>
-                     <li>Data analysis for internal and external audits using Power BI.</li>
-                     <li>Monitoring management review data and open issues using JIRA, ensuring efficient tracking and administration.</li>
-                  </ul>
-               </li>
-            </ul>
-         </div>
-         <hr>
-         <!-- Skills Section -->
-         <button class="collapsible-btn" data-bs-toggle="collapse" data-bs-target="#skills">SKILL</button>
-         <div id="skills" class="collapse">
-            <ul class="list-unstyled">
-               <li class="skill-item"><span>Data Analysis & Statistics:</span> <span class="stars">★★★★☆</span></li>
-               <li class="skill-item"><span>Python & ML Libraries:</span> <span class="stars">★★★★☆</span></li>
-               <li class="skill-item"><span>Machine Learning:</span> <span class="stars">★★★★☆</span></li>
-               <li class="skill-item"><span>Power BI & Visualization:</span> <span class="stars">★★★★☆</span></li>
-               <li class="skill-item"><span>SQL & Databases:</span> <span class="stars">★★★☆☆</span></li>
-               <li class="skill-item"><span>Big Data Analytics:</span> <span class="stars">★★★☆☆</span></li>
-               <li class="skill-item"><span>Process Management:</span> <span class="stars">★★★☆☆</span></li>
-               <li class="skill-item"><span>Web Development:</span> <span class="stars">★★☆☆☆</span></li>
-            </ul>
-         </div>
-         <hr>
-         <!-- Projects -->
-         <button class="collapsible-btn" data-bs-toggle="collapse" data-bs-target="#projects">PROJECT</button>
-         <div id="projects" class="collapse">
-            <!-- ✅ Google Drive link goes here -->
-            <p style="margin-bottom: 10px;">
-               📁 <a href="https://drive.google.com/drive/folders/1hPXmm4vjaRLO7L3mWCPTzLwO1EiKkqTI" target="_blank">
-                  View all project files in Google Drive
-               </a>
-            </p>
-            <ul class="projects-list">
-               <li>
-                  <strong>DATA SCIENCE AND MACHINE LEARNING</strong> <br>
-                  <em>Justus Liebig University Giessen</em> <span class="date">09/2024 – 02/2025</span>
-                  <ul>
-                     <li>Project using various methods such as XGBoost, Logistic Regression, and Support Vector Machine.</li>
-                  </ul>
-               </li>
-               <br>
-               <li>
-                  <strong>INFORMATION VISUALIZATION</strong> <br>
-                  <em>Justus Liebig University Giessen</em> <span class="date">09/2024 – 02/2025</span>
-                  <ul>
-                     <li>Analysis of historical survey data from students over 12 years to extract relevant information and patterns.</li>
-                  </ul>
-               </li>
-               <br>
-               <li>
-                  <strong>DATA ANALYSIS WITH PYTHON</strong> <br>
-                  <em>Online</em> <span class="date">11/2024 – 12/2024</span>
-                  <ul>
-                     <li>Analyzed historical Nasdaq-ETF data using finance API, statistical methods, and machine learning, implementing KNN clustering for pattern recognition and polynomial regression for price trend prediction.</li>
-                  </ul>
-               </li>
-               <br>
-               <li>
-                  <strong>BACHELOR'S THESIS</strong> <br>
-                  <em>Frankfurt University of Applied Sciences</em> <span class="date">05/2024 – 07/2024</span>
-                  <ul>
-                     <li>Comparison of AI-generated dashboards in Power BI with manually created dashboards in terms of information gain and user experience.</li>
-                  </ul>
-               </li>
-               <br>
-               <li>
-                  <strong>WORKFLOW FOR REVIEW MANAGEMENT</strong> <br>
-                  <em>Fraport AG, Frankfurt</em> <span class="date">05/2023 – 09/2023</span>
-                  <ul>
-                     <li>Development of a workflow for process automation in cross-departmental tasks such as audit reports in SAP Signavio.</li>
-                  </ul>
-               </li>
-               <br>
-               <li>
-                  <strong>WEB APPLICATION</strong> <br>
-                  <em>Frankfurt University of Applied Sciences</em> <span class="date">03/2023 – 07/2023</span>
-                  <ul>
-                     <li>Developed a pizza delivery app using Java, Spring Boot, HTML, Bootstrap, and JavaScript with SQL database integration and a responsive UI.</li>
-                  </ul>
-               </li>
-            </ul>
-         </div>
-         <hr>
-         <!-- Certificates -->
-         <button class="collapsible-btn" data-bs-toggle="collapse" data-bs-target="#certificate">CERTIFICATE</button>
-         <div id="certificate" class="collapse">
-            <ul class="certificate-list">
-               <li>
-                  <strong>ADVANCED POWER BI</strong> <br>
-                  <em>Petri Software, Hofheim</em> <span class="date">01/2024 – 12/2024</span>
-                  <ul>
-                     <li>Creation of complex reports for Rhein-Main-Verkehrsverbund GmbH (RMV) in collaboration with Petri Software.</li>
-                  </ul>
-               </li>
-               <br>
-               <li>
-                  <strong>BUSINESS ANALYTICS: EXCEL MACROS & VBA FOR BEGINNERS</strong> <br>
-                  <em>Simplilearn</em> <span class="date">01/2025</span>
-                  <ul>
-                     <li>Introduction to Excel VBA & Macros for process automation.</li>
-                  </ul>
-               </li>
-            </ul>
-         </div>
-         <hr>
-         <!-- Final Statement -->
-         <div class="text-center mt-4">
-            <p>
-               <strong><i> Let's connect and create data-driven solutions that make an impact!</strong></i>
-            </p>
-         </div>
-         <hr>
-         <!-- Footer -->
-         <div class="footer text-center bg-dark text-white py-2 mt-3">
-            <p>© <span id="year"></span> Umesh Dahal</p>
-         </div>
-         <!-- JavaScript to Update Year Dynamically -->
-         <script>
-            document.getElementById("year").textContent = new Date().getFullYear();
-         </script>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-title"><div class="glow-pill"><span class="dot"></span> Education</div></div>
+        <div class="timeline" id="edu-list"></div>
       </div>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-   </body>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-title"><div class="glow-pill"><span class="dot"></span> Experience</div></div>
+        <div class="timeline" id="exp-list"></div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-title"><div class="glow-pill"><span class="dot"></span> Skills</div></div>
+        <div class="grid-3" id="skill-grid"></div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-title"><div class="glow-pill"><span class="dot"></span> Projects</div></div>
+        <div class="grid-3" id="project-grid"></div>
+      </div>
+    </section>
+
+    <section id="certificates">
+      <div class="container">
+        <div class="section-title"><div class="glow-pill"><span class="dot"></span> Certificates/Training</div></div>
+        <div class="grid-2" id="cert-grid"></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-title"><div class="glow-pill"><span class="dot"></span> Contact</div></div>
+        <div class="panel">
+          <p>For collaboration or opportunities, reach me at <a href="mailto:1998.dahal.umesh@gmail.com" style="color:#fff;text-decoration:none;border-bottom:1px dotted rgba(255,30,70,0.6)">1998.dahal.umesh@gmail.com</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Umesh Dahal • Neo‑Red theme</div>
+  </footer>
+
+  <!-- GSAP for smooth reveal/scroll animations (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <script>
+    // ===== Editable content =====
+    const SITE_CONTENT = {
+      education: [
+        { title: "M.Sc. Data Science", org: "Justus Liebig University (JLU)", period: "2024 — Present", details: "Coursework in DL, ML, data engineering, and applied analytics." },
+        { title: "B.Eng. Business Information Systems", org: "Frankfurt UAS", period: "2019 — 2023", details: "Focus on Data Analytics and Process Management." }
+      ],
+      experience: [
+        { title: "Working Student — Business Intelligence / Data Analytics", org: "Rhein-Main-Verkehrsverbund, Hofheim", period: "2023 — Present", details: "Automation, dashboards, database and data tasks supporting the team." },
+        { title: "Intern", org: "Fraport AG, Frankfurt", period: "05.2023 - 10.2023", details: "Data analysis, BI Pipelines, Automation, Process Modelling." }
+      ],
+      skills: [
+        { name: "Python", level: 90 },
+        { name: "Pandas / NumPy", level: 85 },
+        { name: "Scikit‑learn", level: 82 },
+        { name: "TensorFlow / Keras", level: 65 },
+        { name: "SQL", level: 75 },
+        { name: "Power BI", level: 78 },
+        { name: "Git / GitHub", level: 80 },
+        { name: "JS / Frontend", level: 70 },
+        { name: "Data Viz", level: 76 }
+      ],
+      projects: [
+        { name: "MACHINE LEARNING", desc: "Random Forest, XGBoost, Logistic Regression, and Support Vector Machine on Kaggle datasets.", tags: ["Python","sklearn","ML"], links: [{ label:"Code", href:"https://drive.google.com/drive/folders/1eUbjrQ7jlOESnQxe0GJAfttC_2TwBy12" }] },
+        { name: "DEEP LEARNING", desc: "Neural Network with ~97% test accuracy; clean training pipeline.", tags: ["Python","Keras","NN"], links: [{ label:"Code", href:"https://drive.google.com/drive/folders/1FIirupTcfKikJLcxwNhcTqFcuY2C-QOz" }] },
+        { name: "Data Analysis", desc: "Data anaylsis of JLU Student online survey over 12 year to find insights.", tags: ["Python","Statistics"], links: [{ label:"Code", href:"https://drive.google.com/drive/folders/1odu0x5PangJ9BUQIeKkokkU2uDxaHmMi" }] },
+        { name: "WEB DEVELOPMENT", desc: "End‑to‑End web development use cases.", tags: ["Spring Boot","Java","HTML"], links: [{ label:"Code", href:"https://drive.google.com/drive/folders/1CDQk61Lfep9kd003XZqajUBj5k-UMfQH" }] }
+      ],
+      certificates: [
+        { name: "ADVANCED POWER BI", org: "Petri Software, Hofheim incooperation with RMV", year: "2024"},
+        { name: "BUSINESS ANALYTICS", org: "Simplilearn", year: "2025"}
+      ]
+    };
+
+    // ===== Helpers =====
+    const $ = (sel, el=document) => el.querySelector(sel);
+    const $$ = (sel, el=document) => Array.from(el.querySelectorAll(sel));
+
+    // ===== Builders =====
+    function makeTimelineItem({title, org, period, details}) {
+      const div = document.createElement('div');
+      div.className = 'item panel';
+      div.innerHTML = `
+        <h3>${title} — <span style="color:#ffdbe3">${org}</span></h3>
+        <div class="meta">${period}</div>
+        <p style="margin-top:8px">${details}</p>
+      `;
+      return div;
+    }
+
+    function makeSkill({name, level}) {
+      const div = document.createElement('div');
+      div.className = 'skill';
+      div.innerHTML = `
+        <div class="name"><span>${name}</span><span>${level}%</span></div>
+        <div class="bar"><span style="width:0%"></span></div>
+      `;
+      return div;
+    }
+
+    function makeProject({name, desc, tags, links}) {
+      const div = document.createElement('div');
+      div.className = 'card';
+      div.innerHTML = `
+        <h4>${name}</h4>
+        <p>${desc}</p>
+        <div class="tags">${tags.map(t=>`<span class='tag'>${t}</span>`).join('')}</div>
+        <div class="links">${(links||[]).map(l=>`<a href="${l.href}" target="_blank" rel="noreferrer">${l.label} →</a>`).join('')}</div>
+      `;
+      // Tilt effect
+      div.addEventListener('mousemove', (e) => {
+        const r = div.getBoundingClientRect();
+        const x = e.clientX - r.left; const y = e.clientY - r.top;
+        const rx = ((y / r.height) - 0.5) * -8;
+        const ry = ((x / r.width) - 0.5) * 8;
+        div.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
+      });
+      div.addEventListener('mouseleave', ()=>{ div.style.transform = 'rotateX(0) rotateY(0)'; });
+      return div;
+    }
+
+    function makeCert({name, org, year, desc}) {
+      const div = document.createElement('div');
+      div.className = 'panel';
+      div.innerHTML = `
+        <h3 style="margin:4px 0">${name}</h3>
+        <div class="meta">${org} • ${year}</div>
+        <p style="margin-top:8px">${desc}</p>
+      `;
+      return div;
+    }
+
+    // ===== Populate =====
+    function populate() {
+      $('#year').textContent = new Date().getFullYear();
+
+      const eduList = $('#edu-list');
+      SITE_CONTENT.education.forEach(e => eduList.appendChild(makeTimelineItem(e)));
+
+      const expList = $('#exp-list');
+      SITE_CONTENT.experience.forEach(e => expList.appendChild(makeTimelineItem(e)));
+
+      const skills = $('#skill-grid');
+      SITE_CONTENT.skills.forEach(s => skills.appendChild(makeSkill(s)));
+
+      const projects = $('#project-grid');
+      SITE_CONTENT.projects.forEach(p => projects.appendChild(makeProject(p)));
+
+      const certs = $('#cert-grid');
+      if (certs) SITE_CONTENT.certificates.forEach(c => certs.appendChild(makeCert(c)));
+    }
+
+    // ===== Scroll spy for nav =====
+    function scrollSpy() {
+      const links = $$('#topnav a');
+      const targets = links.map(a => $(a.getAttribute('href'))).filter(Boolean);
+      const observer = new IntersectionObserver((entries)=>{
+        entries.forEach((entry)=>{
+          const id = '#' + entry.target.id;
+          const link = $(`#topnav a[href="${id}"]`);
+          if (entry.isIntersecting) {
+            links.forEach(l=>l.classList.remove('active'));
+            link?.classList.add('active');
+          }
+        })
+      }, { rootMargin: '-50% 0px -49% 0px', threshold: 0.01 });
+      targets.forEach(t => observer.observe(t));
+    }
+
+    // ===== GSAP animations =====
+    function animateIn() {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.brand, .nav a', { opacity: 0, y: -8, stagger: 0.05, duration: 0.6, ease: 'power2.out' });
+      gsap.from('.hero h1', { opacity: 0, y: 20, duration: 0.8, ease: 'power3.out', delay: 0.1 });
+      gsap.from('.cta .btn', { opacity: 0, y: 12, stagger: 0.06, duration: 0.5, ease: 'power2.out', delay: 0.18 });
+
+      $$('.section-title').forEach((el)=>{
+        gsap.from(el, { scrollTrigger:{ trigger: el, start: 'top 80%' }, opacity: 0, y: 16, duration: 0.6 });
+      });
+      $$('.panel, .card, .skill').forEach((el)=>{
+        gsap.from(el, { scrollTrigger:{ trigger: el, start: 'top 82%' }, opacity: 0, y: 20, duration: 0.5, ease: 'power2.out' });
+      });
+
+      // Animate skill bars when visible
+      $$('.skill').forEach((el)=>{
+        const span = $('.bar > span', el);
+        const pct = $('.name span:last-child', el).textContent;
+        ScrollTrigger.create({
+          trigger: el, start: 'top 88%', onEnter: ()=>{
+            const v = parseInt(pct); span.style.width = v + '%';
+          }
+        });
+      });
+    }
+
+    // ===== Init (base) =====
+    populate();
+    scrollSpy();
+    animateIn();
+
+    // === Starfield background ===
+    (() => {
+      const c = document.getElementById('stars');
+      const ctx = c.getContext('2d');
+      let W, H, stars;
+      function resize(){
+        W = c.width = innerWidth; H = c.height = innerHeight;
+        const count = Math.min(220, Math.floor((W*H)/12000));
+        stars = Array.from({length: count}, () => ({
+          x: Math.random()*W, y: Math.random()*H,
+          z: Math.random()*2 + .5, // speed
+          r: Math.random()*1.2 + .2
+        }));
+      }
+      function tick(){
+        ctx.clearRect(0,0,W,H);
+        ctx.save();
+        ctx.fillStyle = 'rgba(255, 50, 90, 0.9)';
+        for(const s of stars){
+          s.x += s.z; s.y += s.z*0.35;
+          if(s.x>W || s.y>H){ s.x = Math.random()*W; s.y = -5; }
+          ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI*2); ctx.fill();
+        }
+        ctx.restore();
+        requestAnimationFrame(tick);
+      }
+      addEventListener('resize', resize); resize(); tick();
+    })();
+
+    // === Scroll progress bar ===
+    (() => {
+      const bar = document.getElementById('scroll-progress');
+      function onScroll(){
+        const h = document.documentElement;
+        const pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+        bar.style.width = pct + '%';
+      }
+      addEventListener('scroll', onScroll, {passive:true}); onScroll();
+    })();
+
+    // === Cursor ring ===
+    (() => {
+      const ring = document.querySelector('.mouse-ring');
+      let x = innerWidth/2, y = innerHeight/2, tx=x, ty=y;
+      addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; ring.classList.remove('hide'); });
+      addEventListener('mousedown', ()=> ring.style.transform = `translate(-50%,-50%) scale(.8)`);
+      addEventListener('mouseup',   ()=> ring.style.transform = `translate(-50%,-50%) scale(1)`);
+      function loop(){
+        x += (tx - x)*0.18; y += (ty - y)*0.18;
+        ring.style.left = x + 'px'; ring.style.top = y + 'px';
+        requestAnimationFrame(loop);
+      }
+      addEventListener('mouseleave', ()=> ring.classList.add('hide'));
+      addEventListener('mouseenter', ()=> ring.classList.remove('hide'));
+      loop();
+    })();
+
+    // === Hero: per-character entrance + typewriter subtitle ===
+    (() => {
+      const h1 = document.querySelector('.hero h1');
+      if(h1){
+        const text = h1.textContent;
+        h1.innerHTML = text.split('').map(ch => `<span class="ch">${ch === ' ' ? '&nbsp;' : ch}</span>`).join('');
+        gsap.from('.hero .ch', {opacity:0, y:26, stagger:0.018, duration:.55, ease:'power2.out', delay:.1});
+      }
+      const sub = document.querySelector('.subtitle');
+      if(sub){
+        const full = sub.textContent.trim();
+        sub.textContent = '';
+        const caret = document.createElement('span'); caret.className='caret'; caret.textContent = '▋';
+        sub.appendChild(caret);
+        let i=0;
+        (function type(){
+          if(i < full.length){
+            caret.before(full[i++]);
+            setTimeout(type, 16 + Math.random()*32);
+          }
+        })();
+      }
+    })();
+
+    // === Magnetic buttons & avatar parallax ===
+    (() => {
+      $$('.btn').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+          const r = btn.getBoundingClientRect();
+          const dx = (e.clientX - (r.left + r.width/2)) / (r.width/2);
+          const dy = (e.clientY - (r.top + r.height/2)) / (r.height/2);
+          btn.style.transform = `translate(${dx*6}px, ${dy*6}px)`;
+        });
+        btn.addEventListener('mouseleave', () => { btn.style.transform = 'translate(0,0)'; });
+      });
+
+      const avatar = document.querySelector('.avatar');
+      if(avatar){
+        avatar.classList.add('floating');
+        addEventListener('mousemove', (e) => {
+          const kx = (e.clientX / innerWidth - .5) * 6;
+          const ky = (e.clientY / innerHeight - .5) * 6;
+          avatar.style.transform = `translateY(0) rotateX(${ -ky }deg) rotateY(${ kx }deg)`;
+        });
+      }
+    })();
+
+    // === Card glare that follows the pointer ===
+    (() => {
+      $$('.card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const r = card.getBoundingClientRect();
+          const x = ((e.clientX - r.left)/r.width)*100;
+          const y = ((e.clientY - r.top)/r.height)*100;
+          card.style.setProperty('--mx', x+'%');
+          card.style.setProperty('--my', y+'%');
+        });
+      });
+    })();
+
+    // === Skill % count-up (pairs with existing bar fill) ===
+    (() => {
+      $$('.skill').forEach(el => {
+        const valueEl = $('.name span:last-child', el);
+        const target = parseInt(valueEl.textContent);
+        valueEl.textContent = '0%';
+        ScrollTrigger.create({
+          trigger: el, start: 'top 90%',
+          onEnter: () => {
+            const obj = {v:0};
+            gsap.to(obj, {
+              v: target, duration: 1.2, ease: 'power1.out',
+              onUpdate(){ valueEl.textContent = Math.round(obj.v) + '%'; }
+            });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
 </html>
